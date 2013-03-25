@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sb7</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body style="margin: 0; padding:0; ">
+
+<p style="background:#ddd;text-align:center;margin: 0 0 20px 0; padding: 20px;">
+  <%= link_to "Networks", networks_url %> | <%= link_to "Shows", shows_url %> | <%= link_to "Episodes", episodes_url %>
+</p>
+
+<div style="padding: 15px;">
+
+  <%= yield %>
+
+</div>
+
+</body>
+</html>
