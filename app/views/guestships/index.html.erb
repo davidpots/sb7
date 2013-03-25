@@ -1,0 +1,31 @@
+<h1>Listing guestships</h1>
+
+<table>
+  <tr>
+    <th>Person ID</th>
+    <th>Person Name</th>
+    <th>Episode ID</th>
+    <th>Episode Name</th>
+    <th>Show Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @guestships.each do |guestship| %>
+  <tr>
+    <td><%= guestship.person_id %></td>
+    <td><%= Person.find(guestship.person_id).name %></td>    
+    <td><%= guestship.episode_id %></td>
+    <td><%= Episode.find(guestship.episode_id).title %></td>
+    <td><%= Show.find(Episode.find(guestship.episode_id)).name %></td>
+    <td><%= link_to 'Show', guestship %></td>
+    <td><%= link_to 'Edit', edit_guestship_path(guestship) %></td>
+    <td><%= link_to 'Destroy', guestship, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Guestship', new_guestship_path %>

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Person:</b>
+  <%= @hostship.person_id %>
+</p>
+
+<p>
+  <b>Show:</b>
+  <%= @hostship.show_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_hostship_path(@hostship) %> |
+<%= link_to 'Back', hostships_path %>

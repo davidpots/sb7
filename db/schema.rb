@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130325001423) do
+ActiveRecord::Schema.define(:version => 20130325115834) do
 
   create_table "episodes", :force => true do |t|
     t.string   "title"
@@ -21,10 +21,32 @@ ActiveRecord::Schema.define(:version => 20130325001423) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "guestships", :force => true do |t|
+    t.integer  "person_id"
+    t.integer  "episode_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "hostships", :force => true do |t|
+    t.integer  "person_id"
+    t.integer  "show_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "networks", :force => true do |t|
     t.string   "name"
     t.text     "description"
     t.string   "url_web"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "people", :force => true do |t|
+    t.string   "name"
+    t.text     "bio"
+    t.string   "url_twitter"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

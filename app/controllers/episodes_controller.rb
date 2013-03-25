@@ -1,5 +1,7 @@
 class EpisodesController < ApplicationController
   before_filter :prepare_shows
+  before_filter :prepare_guestships
+  before_filter :prepare_people
   
   # GET /episodes
   # GET /episodes.json
@@ -16,6 +18,7 @@ class EpisodesController < ApplicationController
   # GET /episodes/1.json
   def show
     @episode = Episode.find(params[:id])
+    @guestship = Guestship.new
 
     respond_to do |format|
       format.html # show.html.erb
@@ -88,5 +91,13 @@ class EpisodesController < ApplicationController
   def prepare_shows
     @shows = Show.all
   end
-  
+
+  def prepare_guestships
+    @guestships = Guestship.all
+  end
+
+  def prepare_people
+    @people = Person.all
+  end
+
 end

@@ -1,5 +1,11 @@
 Sb7::Application.routes.draw do
 
+  resources :people
+
+  resources :hostships
+
+  resources :guestships
+
   resources :networks
 
   root to: "pages#home"

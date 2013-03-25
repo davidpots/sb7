@@ -15,6 +15,27 @@
   <%= @episode.show.nil? ? "--" : @episode.show.name %></td>
 </p>
 
+<hr />
+
+<p>
+  <b>Guests:</b><br />
+  <% @guestships.each do |guestship| %>
+    <% if guestship.episode_id == @episode.id %>
+      &bull; <%= Person.find(guestship.person_id).name %><br />
+    <% end %>
+  <% end%>
+</p>
+
+
+<p><strong>Add a guest:</strong></p>
+<%= form_for @guestship do |f| %>
+  <%= f.hidden_field :episode_id, :value => @episode.id %>
+    <%= f.collection_select(:person_id, @people, :id, :name, :include_blank => "Select...") %>
+  <%= f.submit 'Add Guest' %>
+<% end %>
+
+
+
 
 <%= link_to 'Edit', edit_episode_path(@episode) %> |
 <%= link_to 'Back', episodes_path %>
