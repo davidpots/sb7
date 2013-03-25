@@ -15,6 +15,15 @@
   <%= @person.url_twitter %>
 </p>
 
+<p><strong>Guest appearances:</strong></p>
+<ul>
+  <% @guestships.each do |guestship| %>
+    <% if guestship.person_id == @person.id %>
+      &bull; <%= Episode.find(guestship.episode_id).title %> (<%= link_to 'remove', guestship, method: :delete, data: { confirm: 'Are you sure?' } %>)<br />
+    <% end %>
+  <% end %>
+</ul
+
 
 <%= link_to 'Edit', edit_person_path(@person) %> |
 <%= link_to 'Back', people_path %>

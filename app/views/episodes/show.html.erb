@@ -21,11 +21,10 @@
   <b>Guests:</b><br />
   <% @guestships.each do |guestship| %>
     <% if guestship.episode_id == @episode.id %>
-      &bull; <%= Person.find(guestship.person_id).name %><br />
+      &bull; <%= Person.find(guestship.person_id).name %> (<%= link_to 'remove', guestship, method: :delete, data: { confirm: 'Are you sure?' } %>)<br />
     <% end %>
   <% end%>
 </p>
-
 
 <p><strong>Add a guest:</strong></p>
 <%= form_for @guestship do |f| %>

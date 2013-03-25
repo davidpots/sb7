@@ -1,4 +1,6 @@
 class PeopleController < ApplicationController
+  before_filter :prepare_guestships
+
   # GET /people
   # GET /people.json
   def index
@@ -44,7 +46,7 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       if @person.save
-        format.html { redirect_to @person, notice: 'Person was successfully created.' }
+        format.html { redirect_to people_url, notice: 'Person was successfully created.' }
         format.json { render json: @person, status: :created, location: @person }
       else
         format.html { render action: "new" }
@@ -79,5 +81,11 @@ class PeopleController < ApplicationController
       format.html { redirect_to people_url }
       format.json { head :no_content }
     end
+  end
+  
+  private
+  
+  def prepare_guestships
+    @guestships = Guestship.all
   end
 end
