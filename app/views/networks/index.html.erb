@@ -4,7 +4,8 @@
   <tr>
     <th>Name</th>
     <th>Description</th>
-    <th>Url web</th>
+    <th>Website</th>
+    <th># of Shows</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,6 +16,7 @@
     <td><%= network.name %></td>
     <td><%= network.description %></td>
     <td><%= network.url_web %></td>
+    <td><%= network.shows.count %></td>
     <td><%= link_to 'Show', network %></td>
     <td><%= link_to 'Edit', edit_network_path(network) %></td>
     <td><%= link_to 'Destroy', network, method: :delete, data: { confirm: 'Are you sure?' } %></td>

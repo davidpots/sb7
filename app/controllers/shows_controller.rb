@@ -1,5 +1,6 @@
 class ShowsController < ApplicationController
   before_filter :prepare_networks
+  before_filter :prepare_episodes
 
   # GET /shows
   # GET /shows.json
@@ -89,4 +90,8 @@ class ShowsController < ApplicationController
     @networks = Network.all
   end
   
+  def prepare_episodes
+    @episodes = Episode.all
+  end
+
 end

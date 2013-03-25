@@ -6,8 +6,9 @@
     <th>Name</th>
     <th>Description</th>
     <th>Website</th>
-    <th>Network Name</th>
+    <th># of Episodes</th>
     <th>Network ID</th>
+    <th>Network Name</th>
     <th></th>
     <th></th>
     <th></th>
@@ -19,8 +20,15 @@
     <td><%= show.name %></td>
     <td><%= show.description %></td>
     <td><%= link_to show.url_web, show.url_web, target: "_blank" %></td>
+    <td><%= show.episodes.count %></td>
     <td><%= show.network_id.nil? ? "--" : show.network_id %></td>
-    <td><%= show.network.nil? ? "--" : show.network.name %></td>
+    <td>
+      <% if show.network.nil? %>
+        --
+      <% else %>
+        <%= link_to show.network.name, network_url(show.network_id) %>
+      <% end %>
+    </td>
     <td><%= link_to 'Show', show %></td>
     <td><%= link_to 'Edit', edit_show_path(show) %></td>
     <td><%= link_to 'Destroy', show, method: :delete, data: { confirm: 'Are you sure?' } %></td>

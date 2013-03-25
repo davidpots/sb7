@@ -15,6 +15,19 @@
   <%= @show.url_web %>
 </p>
 
+<p>
+  <b>Episodes of this show:</b>
+  <% unless @show.episodes.count == 0 %>
+    <ul>
+      <% @show.episodes.each do |episode| %>
+      <li><%= episode.title %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <em>none</em>
+  <% end %>
+<p>
+
 
 <%= link_to 'Edit', edit_show_path(@show) %> |
 <%= link_to 'Back', shows_path %>

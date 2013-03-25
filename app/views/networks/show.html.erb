@@ -15,6 +15,18 @@
   <%= @network.url_web %>
 </p>
 
+<p>
+  <b>Shows on this network:</b>
+  <% unless @network.shows.count == 0 %>
+    <ul>
+      <% @network.shows.each do |show| %>
+      <li><%= show.name %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <em>none</em>
+  <% end %>
+<p>
 
 <%= link_to 'Edit', edit_network_path(@network) %> |
 <%= link_to 'Back', networks_path %>
