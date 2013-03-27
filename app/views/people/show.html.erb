@@ -1,29 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @person.name %>
-</p>
+<h1><%= @person.name %></h1>
 
 <p>
-  <b>Bio:</b>
+  <b>Bio:</b><br />
   <%= @person.bio %>
 </p>
 
 <p>
-  <b>Url twitter:</b>
-  <%= @person.url_twitter %>
+  <b>Url twitter:</b><br />
+  <%= @person.url_twitter.empty? ? "--" : @person.url_twitter %>
 </p>
 
-<p><strong>Guest appearances:</strong></p>
-<ul>
-  <% @guestships.each do |guestship| %>
-    <% if guestship.person_id == @person.id %>
-      &bull; <%= Episode.find(guestship.episode_id).title %> (<%= link_to 'remove', guestship, method: :delete, data: { confirm: 'Are you sure?' } %>)<br />
+<p><strong>Guest appearances:</strong><br />
+<% if @person.guestships.count == 0 %>
+  --
+<% else %>
+  <ul>
+    <% @guestships.each do |guestship| %>
+      <% if guestship.person_id == @person.id %>
+        &bull; <%= link_to Episode.find(guestship.episode_id).title, Episode.find(guestship.episode_id) %><br />
+      <% end %>
     <% end %>
-  <% end %>
-</ul
+  </ul>
+<% end %>
+</p>
 
-
-<%= link_to 'Edit', edit_person_path(@person) %> |
-<%= link_to 'Back', people_path %>
+<hr />
+<p><%= link_to 'Edit', edit_person_path(@person), :class => "btn" %></p>

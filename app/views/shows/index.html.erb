@@ -7,11 +7,8 @@
     <th>ID</th>
     <th>Name</th>
     <th>Description</th>
-    <th>Website</th>
     <th># of Episodes</th>
-    <th>Network ID</th>
     <th>Network Name</th>
-    <th></th>
     <th></th>
     <th></th>
   </tr>
@@ -19,11 +16,9 @@
 <% @shows.each do |show| %>
   <tr>
     <td><%= show.id %></td>
-    <td><%= show.name %></td>
-    <td><%= show.description %></td>
-    <td><%= link_to show.url_web, show.url_web, target: "_blank" %></td>
+    <td><%= link_to show.name, show %></td>
+    <td><%= truncate(show.description, :length => 120) %></td>
     <td><%= show.episodes.count %></td>
-    <td><%= show.network_id.nil? ? "--" : show.network_id %></td>
     <td>
       <% if show.network.nil? %>
         --
@@ -31,7 +26,6 @@
         <%= link_to show.network.name, network_url(show.network_id) %>
       <% end %>
     </td>
-    <td><%= link_to 'Show', show %></td>
     <td><%= link_to 'Edit', edit_show_path(show) %></td>
     <td><%= link_to 'Destroy', show, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
@@ -40,4 +34,4 @@
 
 <br />
 
-<%= link_to 'New Show', new_show_path %>
+<p><%= link_to 'New Show', new_show_path, :class => "btn" %></p>

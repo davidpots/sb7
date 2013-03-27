@@ -68,5 +68,24 @@ div {
   }
 }
 
-table { border-collapse: collapse; border-spacing:0; }
-td, th { border: 1px solid #ccc; padding: 10px; text-align: left; vertical-align: top; }
+
+// Scaffolding
+    body       { background: #444; }
+    .container { width: 940px; margin: 0 auto; }
+    .container .buffer { padding: 15px 24px; }
+    .container .tile { background: #fff; }
+
+// General HTML Elements
+    a, a:visited, a:focus, a:hover { color: #0072ff; text-decoration: none; background: none; }
+    table { border-collapse: collapse; border-spacing:0; }
+    td, th { border: 1px solid #ccc; padding: 10px; text-align: left; vertical-align: top; }
+
+// Buttons
+    .btn        { display: inline-block; padding: 7px 15px; background: #0072ff; color: #fff; }
+    .btn:hover  { background: #0072ff; color: #fff; }
+    
+    .btn-secondary { background: #ddd; color: #777; }
+    .btn-secondary:hover { background: #ddd; color: #777; }
+
+    .btn-warning { background: red; color: #fff; }
+    .btn-warning:hover { background: red; color: #fff; }

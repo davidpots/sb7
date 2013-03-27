@@ -81,7 +81,7 @@ class EpisodesController < ApplicationController
     @episode.destroy
 
     respond_to do |format|
-      format.html { redirect_to episodes_url }
+      format.html { redirect_to episodes_url, notice: 'Episode was thoroughly destroyed' }
       format.json { head :no_content }
     end
   end

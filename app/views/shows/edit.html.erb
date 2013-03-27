@@ -1,6 +1,8 @@
-<h1>Editing show</h1>
+<h1>Edit this show</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @show %> |
-<%= link_to 'Back', shows_path %>
+<hr />
+<p>
+  <%= link_to 'Delete this show', @show, :class => "btn btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %>
+</p>

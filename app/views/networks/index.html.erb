@@ -4,22 +4,20 @@
 
 <table>
   <tr>
+    <th>ID</th>
     <th>Name</th>
     <th>Description</th>
-    <th>Website</th>
     <th># of Shows</th>
-    <th></th>
     <th></th>
     <th></th>
   </tr>
 
 <% @networks.each do |network| %>
   <tr>
-    <td><%= network.name %></td>
-    <td><%= network.description %></td>
-    <td><%= network.url_web %></td>
+    <td><%= network.id %></td>
+    <td><%= link_to network.name, network_url(network.id) %></td>
+    <td><%= truncate(network.description, :length=>120) %></td>
     <td><%= network.shows.count %></td>
-    <td><%= link_to 'Show', network %></td>
     <td><%= link_to 'Edit', edit_network_path(network) %></td>
     <td><%= link_to 'Destroy', network, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
@@ -28,4 +26,4 @@
 
 <br />
 
-<%= link_to 'New Network', new_network_path %>
+<p><%= link_to 'New Network', new_network_path, :class => "btn" %></p>

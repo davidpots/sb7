@@ -1,18 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @show.name %>
-</p>
+<h1><%= @show.name %></h1>
 
 <p>
-  <b>Description:</b>
+  <b>Description:</b><br />
   <%= @show.description %>
 </p>
 
 <p>
-  <b>Url web:</b>
-  <%= @show.url_web %>
+  <b>Show website:</b><br />
+  <%= @show.url_web.empty? ? "--" : link_to(@show.url_web) %>
 </p>
 
 <p>
@@ -20,14 +17,13 @@
   <% unless @show.episodes.count == 0 %>
     <ul>
       <% @show.episodes.each do |episode| %>
-      <li><%= episode.title %></li>
+      <li><%= link_to episode.title, episode_url(episode.id) %></li>
       <% end %>
     </ul>
   <% else %>
-    <em>none</em>
+    <br /><em>none</em>
   <% end %>
 <p>
 
 
-<%= link_to 'Edit', edit_show_path(@show) %> |
-<%= link_to 'Back', shows_path %>
+<%= link_to 'Edit', edit_show_path(@show), :class => "btn" %>

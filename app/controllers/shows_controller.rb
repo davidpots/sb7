@@ -79,7 +79,7 @@ class ShowsController < ApplicationController
     @show.destroy
 
     respond_to do |format|
-      format.html { redirect_to shows_url }
+      format.html { redirect_to shows_url, notice: "Show was thoroughly destroyed" }
       format.json { head :no_content }
     end
   end

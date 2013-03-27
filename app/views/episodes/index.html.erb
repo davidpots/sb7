@@ -1,4 +1,6 @@
-<h1>Listing episodes</h1>
+<p id="notice"><%= notice %></p>
+
+<h1>Episodes</h1>
 
 <table>
   <tr>
@@ -8,16 +10,14 @@
     <th>Show Name</th>
     <th></th>
     <th></th>
-    <th></th>
   </tr>
 
 <% @episodes.each do |episode| %>
   <tr>
-    <td><%= episode.title %></td>
-    <td><%= episode.notes %></td>
+    <td><%= link_to episode.title, episode_url(episode.id) %></td>
+    <td><%= truncate(episode.notes, :length => 120) %></td>
     <td><%= episode.show.nil? ? "--" : episode.show_id %></td>
     <td><%= episode.show.nil? ? "--" : episode.show.name %></td>
-    <td><%= link_to 'Show', episode %></td>
     <td><%= link_to 'Edit', edit_episode_path(episode) %></td>
     <td><%= link_to 'Destroy', episode, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
@@ -26,4 +26,4 @@
 
 <br />
 
-<%= link_to 'New Episode', new_episode_path %>
+<%= link_to 'New Episode', new_episode_path, :class => "btn" %>

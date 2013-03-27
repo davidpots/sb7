@@ -76,7 +76,7 @@ class GuestshipsController < ApplicationController
     @guestship.destroy
 
     respond_to do |format|
-      format.html { redirect_to guestships_url }
+      format.html { redirect_to guestships_url, notice: "Guestship successfully removed." }
       format.json { head :no_content }
     end
   end

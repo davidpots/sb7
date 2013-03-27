@@ -1,6 +1,8 @@
-<h1>Editing episode</h1>
+<h1>Edit this episode</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @episode %> |
-<%= link_to 'Back', episodes_path %>
+<hr />
+<p>
+  <%= link_to 'Delete this episode', @episode, :class => "btn btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %>
+</p>

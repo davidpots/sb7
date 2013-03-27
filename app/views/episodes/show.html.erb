@@ -1,18 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @episode.title %>
-</p>
+<h1><%= @episode.title %></h1>
+<p>on the show <%= link_to @episode.show.name, show_url(@episode.show.id) %></p>
+
+<hr />
 
 <p>
-  <b>Notes:</b>
+  <b>Notes:</b><br />
   <%= @episode.notes %>
-</p>
-
-<p>
-  <b>Show:</b>
-  <%= @episode.show.nil? ? "--" : @episode.show.name %></td>
 </p>
 
 <hr />
@@ -33,8 +28,11 @@
   <%= f.submit 'Add Guest' %>
 <% end %>
 
+<hr />
 
 
 
-<%= link_to 'Edit', edit_episode_path(@episode) %> |
-<%= link_to 'Back', episodes_path %>
+<p>
+  <%= link_to 'Edit', edit_episode_path(@episode), :class => "btn" %>
+</p>
+
