@@ -20,6 +20,10 @@
     <%= f.text_area :notes %>
   </div>
   <div class="field">
+    <%= f.label :url_web, "Episode Webpage" %><br />
+    <%= f.text_field :url_web %>
+  </div>
+  <div class="field">
     <%= f.label "Show" %><br />
     <%= f.collection_select(:show_id, @shows, :id, :name, :include_blank => "(none)")%>
   </div>

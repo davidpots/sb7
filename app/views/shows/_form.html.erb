@@ -20,8 +20,16 @@
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :url_web %><br />
+    <%= f.label :url_web, "URL: Show Website" %><br />
     <%= f.text_field :url_web %>
+  </div>
+  <div class="field">
+    <%= f.label :url_itunes, "URL: iTunes Feed" %><br />
+    <%= f.text_field :url_itunes %>
+  </div>
+  <div class="field">
+    <%= f.label :url_rss, "URL: RSS Feed" %><br />
+    <%= f.text_field :url_rss %>
   </div>
   <div class="field">
     <%= f.label "Network" %><br />

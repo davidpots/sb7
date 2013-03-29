@@ -8,8 +8,18 @@
 </p>
 
 <p>
-  <b>Show website:</b><br />
-  <%= @show.url_web.empty? ? "--" : link_to(@show.url_web) %>
+  <b>Website:</b><br />
+  <%= @show.url_web.blank? ? "--" : link_to(@show.url_web,@show.url_web,:target => "_blank") %>
+</p>
+
+<p>
+  <b>iTunes URL:</b><br />
+  <%= @show.url_itunes.blank? ? "--" : link_to(@show.url_itunes,@show.url_itunes,:target => "_blank") %>
+</p>
+
+<p>
+  <b>RSS URL:</b><br />
+  <%= @show.url_rss.blank? ? "--" : link_to(@show.url_rss,@show.url_rss,:target => "blank") %>
 </p>
 
 <p>

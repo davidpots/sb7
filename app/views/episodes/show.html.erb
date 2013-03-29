@@ -10,6 +10,11 @@
   <%= @episode.notes %>
 </p>
 
+<p>
+  <b>Website:</b><br />
+  <%= @episode.url_web.blank? ? "--" : link_to(@episode.url_web,@episode.url_web,:target => "_blank") %>
+</p>
+
 <hr />
 
 <p>
