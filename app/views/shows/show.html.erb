@@ -23,6 +23,17 @@
 </p>
 
 <p>
+  <b>Hosted by:</b>
+  <ul>
+  <% @hostships.each do |hostship| %>
+    <% if hostship.show_id == @show.id %>
+      <li><%= link_to Person.find(hostship.person_id).name, person_url(hostship.person_id) %> (<%= link_to 'remove', hostship, method: :delete, data: { confirm: 'Are you sure?' } %>)</li>
+    <% end %>
+  <% end%>
+  </ul>
+</p>
+
+<p>
   <b>Episodes of this show:</b>
   <% unless @show.episodes.count == 0 %>
     <ul>

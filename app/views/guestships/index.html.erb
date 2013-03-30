@@ -19,7 +19,8 @@
     <td><%= link_to Person.find(guestship.person_id).name, person_url(Person.find(guestship.person_id)) %></td>
     <td><%= guestship.episode_id %></td>
     <td><%= link_to Episode.find(guestship.episode_id).title, episode_url(Episode.find(guestship.episode_id)) %></td>
-    <td><%= link_to Show.find(Episode.find(guestship.episode_id)).name, show_url(Episode.find(guestship.episode_id).show_id) %></td>
+    <td><%= Episode.find(guestship.episode_id).show.blank? ? "--" : Episode.find(guestship.episode_id).show.name %></td>
+    <!-- <td><%#= link_to Show.find(Episode.find(guestship.episode_id)).name, show_url(Episode.find(guestship.episode_id).show_id) %></td> -->
     <td><%= link_to 'Edit', edit_guestship_path(guestship) %></td>
     <td><%= link_to 'Destroy', guestship, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>

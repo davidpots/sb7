@@ -1,7 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <h1><%= @episode.title %></h1>
-<p>on the show <%= link_to @episode.show.name, show_url(@episode.show.id) %></p>
+<% unless @episode.show.blank? %>
+  <p>on the show <%= link_to @episode.show.name, show_url(@episode.show.id) %></p>
+<% else %>
+  <p><em>no show is assigned to this episode</em></p>
+<% end %>
 
 <hr />
 
@@ -18,12 +22,14 @@
 <hr />
 
 <p>
-  <b>Guests:</b><br />
+  <b>Guests:</b>
+  <ul>
   <% @guestships.each do |guestship| %>
     <% if guestship.episode_id == @episode.id %>
-      &bull; <%= Person.find(guestship.person_id).name %> (<%= link_to 'remove', guestship, method: :delete, data: { confirm: 'Are you sure?' } %>)<br />
+      <li><%= link_to Person.find(guestship.person_id).name, person_url(guestship.person_id) %></li>
     <% end %>
   <% end%>
+  </ul>
 </p>
 
 <p><strong>Add a guest:</strong></p>

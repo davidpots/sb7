@@ -12,6 +12,20 @@
   <%= @person.url_twitter.empty? ? "--" : @person.url_twitter %>
 </p>
 
+<p><strong>Hosts these shows:</strong><br />
+<% if @person.hostships.count == 0 %>
+  --
+<% else %>
+  <ul>
+    <% @hostships.each do |hostship| %>
+      <% if hostship.person_id == @person.id %>
+        &bull; <%= link_to Show.find(hostship.show_id).name, Show.find(hostship.show_id) %><br />
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>
+</p>
+
 <p><strong>Guest appearances:</strong><br />
 <% if @person.guestships.count == 0 %>
   --

@@ -1,6 +1,18 @@
 <h1>Edit this episode</h1>
 
 <%= render 'form' %>
+<hr />
+
+<p>
+  <b>Guests:</b>
+  <ul>
+  <% @guestships.each do |guestship| %>
+    <% if guestship.episode_id == @episode.id %>
+      <li><%= link_to Person.find(guestship.person_id).name, person_url(guestship.person_id) %> (<%= link_to 'remove', guestship, method: :delete, data: { confirm: 'Are you sure?' } %>)</li>
+    <% end %>
+  <% end%>
+  </ul>
+</p>
 
 <hr />
 <p>

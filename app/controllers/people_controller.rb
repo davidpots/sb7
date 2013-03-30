@@ -1,5 +1,6 @@
 class PeopleController < ApplicationController
   before_filter :prepare_guestships
+  before_filter :prepare_hostships
 
   # GET /people
   # GET /people.json
@@ -88,4 +89,9 @@ class PeopleController < ApplicationController
   def prepare_guestships
     @guestships = Guestship.all
   end
+
+  def prepare_hostships
+    @hostships = Hostship.all
+  end
+
 end
