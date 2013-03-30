@@ -15,6 +15,16 @@
 </p>
 
 <hr />
+
+<p><strong>Add a guest:</strong></p>
+<%= form_for @guestship do |f| %>
+  <%= f.hidden_field :episode_id, :value => @episode.id %>
+    <%= f.collection_select(:person_id, @people, :id, :name, :include_blank => "Select...") %>
+  <%= f.submit 'Add Guest' %>
+<% end %>
+
+<hr />
+
 <p>
   <%= link_to 'Delete this episode', @episode, :class => "btn btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %>
 </p>

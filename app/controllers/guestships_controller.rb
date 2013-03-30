@@ -41,10 +41,11 @@ class GuestshipsController < ApplicationController
   # POST /guestships.json
   def create
     @guestship = Guestship.new(params[:guestship])
+    @episode = Episode.find(@guestship.episode_id)
 
     respond_to do |format|
       if @guestship.save
-        format.html { redirect_to @guestship, notice: 'Guestship was successfully created.' }
+        format.html { redirect_to episode_url(@episode.id), notice: 'Guestship was successfully created.' }
         format.json { render json: @guestship, status: :created, location: @guestship }
       else
         format.html { render action: "new" }
@@ -74,9 +75,10 @@ class GuestshipsController < ApplicationController
   def destroy
     @guestship = Guestship.find(params[:id])
     @guestship.destroy
+    @episode = Episode.find(@guestship.episode_id)
 
     respond_to do |format|
-      format.html { redirect_to guestships_url, notice: "Guestship successfully removed." }
+      format.html { redirect_to episode_url(@episode.id), notice: "Guestship successfully removed." }
       format.json { head :no_content }
     end
   end

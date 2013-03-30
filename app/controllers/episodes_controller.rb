@@ -18,7 +18,6 @@ class EpisodesController < ApplicationController
   # GET /episodes/1.json
   def show
     @episode = Episode.find(params[:id])
-    @guestship = Guestship.new
 
     respond_to do |format|
       format.html # show.html.erb
@@ -40,6 +39,7 @@ class EpisodesController < ApplicationController
   # GET /episodes/1/edit
   def edit
     @episode = Episode.find(params[:id])
+    @guestship = Guestship.new
   end
 
   # POST /episodes
